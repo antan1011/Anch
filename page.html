@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Foundation 实例</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="https://cdn.staticfile.net/jquery/2.1.1/jquery.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.staticfile.net/foundation/5.5.3/css/foundation.min.css"> -->
+    <!-- <script src="https://cdn.staticfile.net/foundation/5.5.3/js/foundation.min.js"></script> -->
+    <!-- <script src="https://cdn.staticfile.net/foundation/5.5.3/js/vendor/modernizr.js"></script> -->
+</head>
+
+<body style="padding-top:10px;">
+    <div class="none">
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <button>Foundation</button>
+    </div>
+    <div id="div" style="border: 1px solid; width: 480px; height: 300px;">
+
+    </div>
+    <!-- <img src="http://127.0.0.1:9000/image" alt="Not"> -->
+
+    <a id="a" href="#" download="">下载</a>
+    <a id="a1">文件</a>
+    <a id="a2">本地文件</a>
+
+    <button id="btnid">click</button>
+    <button id="btnid1">改变href</button>
+</body>
+<script>
+    const http = new XMLHttpRequest()
+    http.onreadystatechange = () => {
+        div.style.overflowY = 'auto'
+        div.innerHTML = `${http.responseText}`
+    }
+    div.onclick = () => {
+        let url = 'http://127.0.0.1:9000/seo'
+        http.open('get', url, true)
+        http.send()
+    }
+
+    a1.href = './a'
+
+
+    a2.href = 'file://C:/Users/AnFeng/Desktop/newdir'
+
+    btnid1.onclick = () => {
+        const xmlhttp2 = new XMLHttpRequest()
+        xmlhttp2.onreadystatechange = () => {
+            a2.href = xmlhttp2.responseText
+        }
+        xmlhttp2.open('get','http://127.0.0.1:9000/newpath')
+        xmlhttp2.send()
+    }
+
+
+    // const http1 = new XMLHttpRequest()
+    // http1.responseType = 'blob'
+    // http1.open('get','http://127.0.0.1:9000/download',true)
+    // http1.send()
+    // http1.onreadystatechange = () => {
+    //     const b = new Blob([http1.response])
+    //     const url = URL.createObjectURL(b)
+    //     a.href = url
+    //     a.download='ran\'e.mp4'
+    // }
+
+    const xmlhttp = new XMLHttpRequest()
+    xmlhttp.onreadystatechange = () => {
+        div.innerHTML = xmlhttp.responseText
+        // console.log(xmlhttp.responseText)
+    }
+    btnid.onclick = () => {
+        xmlhttp.open('post', 'http://127.0.0.1:9000/p')
+        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp.send('name=Antan')
+        // xmlhttp.send('param1=value1&param2=value2');
+    }
+</script>
+<style>
+    .none {
+        display: none;
+    }
+</style>
+
+</html>

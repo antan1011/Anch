@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antan</title>
+</head>
+
+<body>
+    <div style="position: relative;">
+        <a class="a">
+            <img class="img imgstyle" src="https://antan1011.github.io/view/image/xiaoxi1.webp" alt="Not Found">
+        </a>
+        <div class="dialog">
+            <img style="width: auto;height: 600px;" src="https://antan1011.github.io/images/xiaoxi/xiaoxi1.webp"
+                alt="Xiaoxi">
+        </div>
+        <div class="enlarge">
+            <img id="enlarge" src="https://antan1011.github.io/images/xiaoxi/xiaoxi1.webp" alt="xiaoxi1">
+        </div>
+    </div>
+
+</body>
+
+
+<script>
+    const aDom = document.querySelectorAll('.a')[0]
+    aDom.href = 'https://antan1011.github.io/view/pexels-mayu-6348820.jpg'
+    const imgDom = document.querySelectorAll('.img')[0]
+
+    const dialog = document.querySelectorAll('.dialog')[0]
+
+
+    imgDom.onmouseover = () => {
+        dialog.style.display = 'block'
+        // imgDom.classList.add('imgsize')
+    }
+    imgDom.onmouseout = () => {
+        dialog.style.display = 'none'
+        // imgDom.classList.remove('imgsize')
+    }
+    // imgDom.onmousemove = (e) => {
+    //     console.log(e)
+    // }
+
+    dialog.onmouseover = () => {
+        dialog.style.display = 'block'
+        enlarge.style.display = 'block'
+    }
+
+    dialog.onmouseout = () => {
+        dialog.style.display = 'none'
+        enlarge.style.display = 'none'
+    }
+    dialog.onmousemove = (e) => {
+        enlarge.style.objectPosition = e.clientX + 'px ' + e.clientY + 'px'
+    }
+
+
+
+
+</script>
+
+<style>
+    .imgstyle {
+        height: 120px;
+        width: 72px;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .imgsize {
+        height: 480px;
+        width: 288px;
+    }
+
+    .dialog {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 76px;
+    }
+
+    #enlarge {
+        position: absolute;
+        display: none;
+        top: 100px;
+        right: 100px;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        transform: scale(1.2);
+        border: 1px solid;
+    }
+</style>
+
+</html>

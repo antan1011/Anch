@@ -1,0 +1,9 @@
+.div {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 2em;
+    color: skyblue;
+}
